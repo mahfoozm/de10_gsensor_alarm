@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Mon Nov 25 18:54:32 2024
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : Team5_EECS3216_Project
+Top-level Entity Name : DE10_LITE_Golden_Top
+Family : MAX 10
+Total logic elements : 1,283
+    Total combinational functions : 1,247
+    Dedicated logic registers : 138
+Total registers : 138
+Total pins : 185
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0

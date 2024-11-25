@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at spi_serdes.v(5): object "spi_clk" differs only in case from object "SPI_CLK" in the same scope File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_serdes.v Line: 5
+Info (10281): Verilog HDL Declaration information at spi_serdes.v(25): object "READ" differs only in case from object "read" in the same scope File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_serdes.v Line: 25
+Info (10281): Verilog HDL Declaration information at spi_control.v(13): object "spi_clk" differs only in case from object "SPI_CLK" in the same scope File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_control.v Line: 13
+Warning (10268): Verilog HDL information at Team5_EECS3216_Project.v(149): always construct contains both blocking and non-blocking assignments File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 149
