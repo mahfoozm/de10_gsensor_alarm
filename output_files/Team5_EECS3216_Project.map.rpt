@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Team5_EECS3216_Project
-Mon Nov 25 18:54:33 2024
+Wed Nov 27 14:25:36 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,15 +14,15 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_state
- 10. State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|state
+  9. State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_state
+ 10. State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|spi_state
  11. Registers Removed During Synthesis
  12. Removed Registers Triggering Further Register Optimizations
  13. General Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
  15. Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm
  16. Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component
- 17. Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl
+ 17. Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor
  18. Parameter Settings for Inferred Entity Instance: Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0
  19. Parameter Settings for Inferred Entity Instance: Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1
  20. Parameter Settings for Inferred Entity Instance: Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1
@@ -30,12 +30,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  22. Parameter Settings for Inferred Entity Instance: Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0
  23. altpll Parameter Settings by Entity Instance
  24. lpm_mult Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl"
- 26. Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
- 30. Analysis & Synthesis Suppressed Messages
+ 25. Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -62,15 +61,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 25 18:54:32 2024       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 27 14:25:36 2024       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; Team5_EECS3216_Project                      ;
 ; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,283                                       ;
-;     Total combinational functions  ; 1,247                                       ;
-;     Dedicated logic registers      ; 138                                         ;
-; Total registers                    ; 138                                         ;
+; Total logic elements               ; 1,318                                       ;
+;     Total combinational functions  ; 1,292                                       ;
+;     Dedicated logic registers      ; 122                                         ;
+; Total registers                    ; 122                                         ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -196,8 +195,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; ip/spi_serdes.v                  ; yes             ; User Verilog HDL File        ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_serdes.v          ;         ;
-; ip/spi_control.v                 ; yes             ; User Verilog HDL File        ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_control.v         ;         ;
+; spi_controller.v                 ; yes             ; User Verilog HDL File        ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/spi_controller.v         ;         ;
 ; Team5_EECS3216_Project.v         ; yes             ; User Verilog HDL File        ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v ;         ;
 ; DE10_LITE_Golden_Top.v           ; yes             ; User Verilog HDL File        ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v   ;         ;
 ; ip/pll.v                         ; yes             ; User Wizard-Generated File   ; C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/pll.v                 ;         ;
@@ -254,20 +252,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                                                ;
 +---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 1,283                                                                                                                ;
+; Estimated Total logic elements              ; 1,318                                                                                                                ;
 ;                                             ;                                                                                                                      ;
-; Total combinational functions               ; 1247                                                                                                                 ;
+; Total combinational functions               ; 1292                                                                                                                 ;
 ; Logic element usage by number of LUT inputs ;                                                                                                                      ;
-;     -- 4 input functions                    ; 403                                                                                                                  ;
-;     -- 3 input functions                    ; 343                                                                                                                  ;
-;     -- <=2 input functions                  ; 501                                                                                                                  ;
+;     -- 4 input functions                    ; 393                                                                                                                  ;
+;     -- 3 input functions                    ; 381                                                                                                                  ;
+;     -- <=2 input functions                  ; 518                                                                                                                  ;
 ;                                             ;                                                                                                                      ;
 ; Logic elements by mode                      ;                                                                                                                      ;
-;     -- normal mode                          ; 861                                                                                                                  ;
-;     -- arithmetic mode                      ; 386                                                                                                                  ;
+;     -- normal mode                          ; 877                                                                                                                  ;
+;     -- arithmetic mode                      ; 415                                                                                                                  ;
 ;                                             ;                                                                                                                      ;
-; Total registers                             ; 138                                                                                                                  ;
-;     -- Dedicated logic registers            ; 138                                                                                                                  ;
+; Total registers                             ; 122                                                                                                                  ;
+;     -- Dedicated logic registers            ; 122                                                                                                                  ;
 ;     -- I/O registers                        ; 0                                                                                                                    ;
 ;                                             ;                                                                                                                      ;
 ; I/O pins                                    ; 185                                                                                                                  ;
@@ -278,9 +276,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                                                                    ;
 ;                                             ;                                                                                                                      ;
 ; Maximum fan-out node                        ; Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 140                                                                                                                  ;
-; Total fan-out                               ; 4327                                                                                                                 ;
-; Average fan-out                             ; 2.37                                                                                                                 ;
+; Maximum fan-out                             ; 124                                                                                                                  ;
+; Total fan-out                               ; 4390                                                                                                                 ;
+; Average fan-out                             ; 2.36                                                                                                                 ;
 +---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 
 
@@ -289,8 +287,8 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                               ; Entity Name            ; Library Name ;
 +---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |DE10_LITE_Golden_Top                             ; 1247 (0)            ; 138 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                                                                             ; DE10_LITE_Golden_Top   ; work         ;
-;    |Team5_EECS3216_Project:gsensor_alarm|         ; 1247 (132)          ; 138 (55)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm                                                                                                                        ; Team5_EECS3216_Project ; work         ;
+; |DE10_LITE_Golden_Top                             ; 1292 (0)            ; 122 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                                                                             ; DE10_LITE_Golden_Top   ; work         ;
+;    |Team5_EECS3216_Project:gsensor_alarm|         ; 1292 (210)          ; 122 (64)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm                                                                                                                        ; Team5_EECS3216_Project ; work         ;
 ;       |lpm_divide:Div0|                           ; 362 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0                                                                                                        ; lpm_divide             ; work         ;
 ;          |lpm_divide_ibo:auto_generated|          ; 362 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0|lpm_divide_ibo:auto_generated                                                                          ; lpm_divide_ibo         ; work         ;
 ;             |abs_divider_nbg:divider|             ; 362 (8)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                                  ; abs_divider_nbg        ; work         ;
@@ -299,16 +297,16 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpm_divide_2ao:auto_generated|          ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1|lpm_divide_2ao:auto_generated                                                                          ; lpm_divide_2ao         ; work         ;
 ;             |abs_divider_7ag:divider|             ; 73 (8)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1|lpm_divide_2ao:auto_generated|abs_divider_7ag:divider                                                  ; abs_divider_7ag        ; work         ;
 ;                |alt_u_div_2fe:divider|            ; 65 (65)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1|lpm_divide_2ao:auto_generated|abs_divider_7ag:divider|alt_u_div_2fe:divider                            ; alt_u_div_2fe          ; work         ;
-;       |lpm_divide:Mod0|                           ; 425 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0                                                                                                        ; lpm_divide             ; work         ;
-;          |lpm_divide_l3o:auto_generated|          ; 425 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated                                                                          ; lpm_divide_l3o         ; work         ;
-;             |abs_divider_nbg:divider|             ; 425 (17)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated|abs_divider_nbg:divider                                                  ; abs_divider_nbg        ; work         ;
+;       |lpm_divide:Mod0|                           ; 426 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0                                                                                                        ; lpm_divide             ; work         ;
+;          |lpm_divide_l3o:auto_generated|          ; 426 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated                                                                          ; lpm_divide_l3o         ; work         ;
+;             |abs_divider_nbg:divider|             ; 426 (17)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated|abs_divider_nbg:divider                                                  ; abs_divider_nbg        ; work         ;
 ;                |alt_u_div_2ie:divider|            ; 373 (373)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                            ; alt_u_div_2ie          ; work         ;
-;                |lpm_abs_8b9:my_abs_num|           ; 35 (35)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                           ; lpm_abs_8b9            ; work         ;
-;       |lpm_divide:Mod1|                           ; 94 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1                                                                                                        ; lpm_divide             ; work         ;
-;          |lpm_divide_52o:auto_generated|          ; 94 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated                                                                          ; lpm_divide_52o         ; work         ;
-;             |abs_divider_7ag:divider|             ; 94 (8)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated|abs_divider_7ag:divider                                                  ; abs_divider_7ag        ; work         ;
+;                |lpm_abs_8b9:my_abs_num|           ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0|lpm_divide_l3o:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                           ; lpm_abs_8b9            ; work         ;
+;       |lpm_divide:Mod1|                           ; 93 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1                                                                                                        ; lpm_divide             ; work         ;
+;          |lpm_divide_52o:auto_generated|          ; 93 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated                                                                          ; lpm_divide_52o         ; work         ;
+;             |abs_divider_7ag:divider|             ; 93 (8)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated|abs_divider_7ag:divider                                                  ; abs_divider_7ag        ; work         ;
 ;                |alt_u_div_2fe:divider|            ; 74 (74)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated|abs_divider_7ag:divider|alt_u_div_2fe:divider                            ; alt_u_div_2fe          ; work         ;
-;                |lpm_abs_r99:my_abs_num|           ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated|abs_divider_7ag:divider|lpm_abs_r99:my_abs_num                           ; lpm_abs_r99            ; work         ;
+;                |lpm_abs_r99:my_abs_num|           ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1|lpm_divide_52o:auto_generated|abs_divider_7ag:divider|lpm_abs_r99:my_abs_num                           ; lpm_abs_r99            ; work         ;
 ;       |lpm_mult:Mult0|                            ; 65 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0                                                                                                         ; lpm_mult               ; work         ;
 ;          |multcore:mult_core|                     ; 65 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0|multcore:mult_core                                                                                      ; multcore               ; work         ;
 ;             |mpar_add:padder|                     ; 41 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add               ; work         ;
@@ -322,8 +320,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |pll:pll_inst|                              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst                                                                                                           ; pll                    ; work         ;
 ;          |altpll:altpll_component|                ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component                                                                                   ; altpll                 ; work         ;
 ;             |pll_altpll:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated                                                         ; pll_altpll             ; work         ;
-;       |spi_control:spi_ctrl|                      ; 96 (68)             ; 83 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl                                                                                                   ; spi_control            ; work         ;
-;          |spi_serdes:serdes|                      ; 28 (28)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes                                                                                 ; spi_serdes             ; work         ;
+;       |spi_controller:gsensor|                    ; 63 (63)             ; 58 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor                                                                                                 ; spi_controller         ; work         ;
 +---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -338,62 +335,78 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------+
-; State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_state ;
-+--------------------+----------------+--------------------+------------------------------------------------+
-; Name               ; spi_state.IDLE ; spi_state.INTERACT ; spi_state.TRANSFER                             ;
-+--------------------+----------------+--------------------+------------------------------------------------+
-; spi_state.IDLE     ; 0              ; 0                  ; 0                                              ;
-; spi_state.TRANSFER ; 1              ; 0                  ; 1                                              ;
-; spi_state.INTERACT ; 1              ; 1                  ; 0                                              ;
-+--------------------+----------------+--------------------+------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_state ;
++-----------------+-----------------+-----------------+-----------------+----------------------------------------+
+; Name            ; serdes_state.11 ; serdes_state.10 ; serdes_state.01 ; serdes_state.00                        ;
++-----------------+-----------------+-----------------+-----------------+----------------------------------------+
+; serdes_state.00 ; 0               ; 0               ; 0               ; 0                                      ;
+; serdes_state.01 ; 0               ; 0               ; 1               ; 1                                      ;
+; serdes_state.10 ; 0               ; 1               ; 0               ; 1                                      ;
+; serdes_state.11 ; 1               ; 0               ; 0               ; 1                                      ;
++-----------------+-----------------+-----------------+-----------------+----------------------------------------+
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|state ;
-+-------------+-------------+------------+-------------+------------------------------------------------------------------+
-; Name        ; state.STALL ; state.READ ; state.WRITE ; state.IDLE                                                       ;
-+-------------+-------------+------------+-------------+------------------------------------------------------------------+
-; state.IDLE  ; 0           ; 0          ; 0           ; 0                                                                ;
-; state.WRITE ; 0           ; 0          ; 1           ; 1                                                                ;
-; state.READ  ; 0           ; 1          ; 0           ; 1                                                                ;
-; state.STALL ; 1           ; 0          ; 0           ; 1                                                                ;
-+-------------+-------------+------------+-------------+------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|spi_state ;
++--------------+--------------+--------------+----------------------------------------------------------------+
+; Name         ; spi_state.00 ; spi_state.10 ; spi_state.01                                                   ;
++--------------+--------------+--------------+----------------------------------------------------------------+
+; spi_state.00 ; 0            ; 0            ; 0                                                              ;
+; spi_state.01 ; 1            ; 0            ; 1                                                              ;
+; spi_state.10 ; 1            ; 1            ; 0                                                              ;
++--------------+--------------+--------------+----------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                                    ;
-+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-; Register name                                                                               ; Reason for Removal                                                                                      ;
-+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[7]                        ; Stuck at GND due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[7]  ; Stuck at GND due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|read            ; Merged with Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[15] ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[6]  ; Merged with Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[2]  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[6]                        ; Merged with Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[2]                        ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[14]                       ; Stuck at GND due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[13]                       ; Stuck at VCC due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[14] ; Stuck at GND due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[13] ; Stuck at VCC due to stuck port data_in                                                                  ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|state~5         ; Lost fanout                                                                                             ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|state~6         ; Lost fanout                                                                                             ;
-; Total Number of Removed Registers = 11                                                      ;                                                                                                         ;
-+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                               ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+; Register name                                                                          ; Reason for Removal                                                                      ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[15]                ; Stuck at VCC due to stuck port data_in                                                  ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[0..7,10,11,14]     ; Stuck at GND due to stuck port data_in                                                  ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_read                ; Stuck at VCC due to stuck port data_in                                                  ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[15]            ; Stuck at VCC due to stuck port data_in                                                  ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[0..7,10,11,14] ; Stuck at GND due to stuck port data_in                                                  ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[9,13]          ; Merged with Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[12] ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[9,13]              ; Merged with Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[12]     ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_state~5             ; Lost fanout                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_state~6             ; Lost fanout                                                                             ;
+; Total Number of Removed Registers = 31                                                 ;                                                                                         ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                     ;
-+-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------+
-; Register name                                                         ; Reason for Removal        ; Registers Removed due to This Register                                                      ;
-+-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------+
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[7]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[7]  ;
-;                                                                       ; due to stuck port data_in ;                                                                                             ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[14] ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[14] ;
-;                                                                       ; due to stuck port data_in ;                                                                                             ;
-; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[13] ; Stuck at VCC              ; Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[13] ;
-;                                                                       ; due to stuck port data_in ;                                                                                             ;
-+-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                       ;
++-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal        ; Registers Removed due to This Register                                      ;
++-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[15] ; Stuck at VCC              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_read,    ;
+;                                                                         ; due to stuck port data_in ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[15] ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[14] ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[14] ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[11] ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[11] ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[10] ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[10] ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[7]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[7]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[6]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[6]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[5]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[5]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[4]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[4]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[3]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[3]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[2]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[2]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[1]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[1]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
+; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx[0]  ; Stuck at GND              ; Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|data_tx_reg[0]  ;
+;                                                                         ; due to stuck port data_in ;                                                                             ;
++-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -401,31 +414,31 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 138   ;
-; Number of registers using Synchronous Clear  ; 33    ;
+; Total registers                              ; 122   ;
+; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 86    ;
+; Number of registers using Asynchronous Clear ; 90    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 86    ;
+; Number of registers using Clock Enable       ; 80    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|buzzer_counter[12]                               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[11]                 ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|data_tx[8]                  ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|LEDR[9]                                          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|count[1]  ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX0[5]                                          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX1[6]                                          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX2[5]                                          ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|Selector5 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|LEDR[9]                                ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|buzzer_counter[4]                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_count[3] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|toggle_count                           ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|toggle_count                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX0[5]                                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX1[5]                                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|HEX2[5]                                ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|Selector11      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------+
@@ -823,14 +836,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl ;
-+----------------+---------+-----------------------------------------------------------------------------+
-; Parameter Name ; Value   ; Type                                                                        ;
-+----------------+---------+-----------------------------------------------------------------------------+
-; SPI_CLK_FREQ   ; 2000000 ; Signed Integer                                                              ;
-; UPDATE_FREQ    ; 50      ; Signed Integer                                                              ;
-+----------------+---------+-----------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor ;
++----------------+---------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                          ;
++----------------+---------+-------------------------------------------------------------------------------+
+; SPI_CLK_FREQ   ; 2000000 ; Signed Integer                                                                ;
+; UPDATE_FREQ    ; 50      ; Signed Integer                                                                ;
++----------------+---------+-------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -999,22 +1012,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl"                                 ;
+; Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor"                               ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port        ; Type   ; Severity ; Details                                                                             ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 ; data_update ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; data_y      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Team5_EECS3216_Project:gsensor_alarm"                                                                                                              ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type  ; Severity ; Details                                                                                                                                      ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; GSENSOR_INT ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -1023,28 +1026,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 138                         ;
-;     CLR               ; 28                          ;
-;     CLR SCLR          ; 24                          ;
-;     ENA               ; 52                          ;
-;     ENA CLR           ; 25                          ;
-;     ENA CLR SCLR      ; 9                           ;
+; cycloneiii_ff         ; 122                         ;
+;     CLR               ; 27                          ;
+;     CLR SCLR          ; 15                          ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 38                          ;
+;     ENA CLR SCLR      ; 10                          ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 1253                        ;
-;     arith             ; 386                         ;
+; cycloneiii_lcell_comb ; 1298                        ;
+;     arith             ; 415                         ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 110                         ;
-;         3 data inputs ; 272                         ;
-;     normal            ; 867                         ;
-;         0 data inputs ; 43                          ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 339                         ;
+;         2 data inputs ; 101                         ;
+;         3 data inputs ; 310                         ;
+;     normal            ; 883                         ;
+;         0 data inputs ; 44                          ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 363                         ;
 ;         3 data inputs ; 71                          ;
-;         4 data inputs ; 403                         ;
+;         4 data inputs ; 393                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 72.30                       ;
-; Average LUT depth     ; 46.32                       ;
+; Max LUT depth         ; 72.50                       ;
+; Average LUT depth     ; 45.81                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1053,7 +1056,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1063,17 +1066,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 25 18:54:25 2024
+    Info: Processing started: Wed Nov 27 14:25:28 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Team5_EECS3216_Project -c Team5_EECS3216_Project
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file d:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file ip/spi_serdes.v
-    Info (12023): Found entity 1: spi_serdes File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_serdes.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file ip/spi_control.v
-    Info (12023): Found entity 1: spi_control File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_control.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file spi_controller.v
+    Info (12023): Found entity 1: spi_controller File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/spi_controller.v Line: 19
 Info (12021): Found 1 design units, including 1 entities, in source file team5_eecs3216_project.v
-    Info (12023): Found entity 1: Team5_EECS3216_Project File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 1
+    Info (12023): Found entity 1: Team5_EECS3216_Project File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
     Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file ip/pll.v
@@ -1095,12 +1095,12 @@ Warning (10034): Output port "DRAM_WE_N" at DE10_LITE_Golden_Top.v(56) has no dr
 Warning (10034): Output port "VGA_HS" at DE10_LITE_Golden_Top.v(98) has no driver File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 98
 Warning (10034): Output port "VGA_VS" at DE10_LITE_Golden_Top.v(100) has no driver File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 100
 Info (12128): Elaborating entity "Team5_EECS3216_Project" for hierarchy "Team5_EECS3216_Project:gsensor_alarm" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 152
-Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(73): truncated value with size 32 to match size of target (20) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 73
-Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(89): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 89
-Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(91): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 91
-Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(92): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 92
-Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(183): truncated value with size 32 to match size of target (24) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 183
-Info (12128): Elaborating entity "pll" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 47
+Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(132): truncated value with size 32 to match size of target (20) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 132
+Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(155): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 155
+Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(157): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 157
+Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(158): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 158
+Warning (10230): Verilog HDL assignment warning at Team5_EECS3216_Project.v(260): truncated value with size 32 to match size of target (15) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 260
+Info (12128): Elaborating entity "pll" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 100
 Info (12128): Elaborating entity "altpll" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/pll.v Line: 99
 Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/pll.v Line: 99
 Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/pll.v Line: 99
@@ -1169,17 +1169,18 @@ Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|pl
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
     Info (12023): Found entity 1: pll_altpll File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/pll_altpll.v Line: 30
 Info (12128): Elaborating entity "pll_altpll" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "spi_control" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 66
-Info (10264): Verilog HDL Case Statement information at spi_control.v(200): all case item expressions in this case statement are onehot File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_control.v Line: 200
-Info (12128): Elaborating entity "spi_serdes" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/ip/spi_control.v Line: 128
+Info (12128): Elaborating entity "spi_controller" for hierarchy "Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 121
+Warning (10230): Verilog HDL assignment warning at spi_controller.v(174): truncated value with size 32 to match size of target (2) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/spi_controller.v Line: 174
+Warning (10230): Verilog HDL assignment warning at spi_controller.v(204): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/spi_controller.v Line: 204
+Warning (10230): Verilog HDL assignment warning at spi_controller.v(214): truncated value with size 32 to match size of target (4) File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/spi_controller.v Line: 214
 Info (278001): Inferred 5 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mod0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 90
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mod1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 92
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Div1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 91
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Div0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 89
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mult0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 73
-Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 90
-Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 90
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mod0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 156
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mod1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 158
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Div1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 157
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Div0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 155
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Team5_EECS3216_Project:gsensor_alarm|Mult0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 132
+Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 156
+Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 156
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1199,8 +1200,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
     Info (12023): Found entity 1: lpm_abs_r99 File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/lpm_abs_r99.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
     Info (12023): Found entity 1: lpm_abs_8b9 File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/lpm_abs_8b9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 92
-Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 92
+Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 158
+Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Mod1" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 158
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1214,8 +1215,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_2fe File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/alt_u_div_2fe.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
     Info (12023): Found entity 1: lpm_abs_o99 File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/lpm_abs_o99.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 91
-Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 91
+Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 157
+Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div1" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 157
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1223,8 +1224,8 @@ Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lp
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2ao.tdf
     Info (12023): Found entity 1: lpm_divide_2ao File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/lpm_divide_2ao.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 89
-Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 89
+Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 155
+Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_divide:Div0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 155
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1232,8 +1233,8 @@ Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lp
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ibo.tdf
     Info (12023): Found entity 1: lpm_divide_ibo File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/lpm_divide_ibo.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 73
-Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 73
+Info (12130): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 132
+Info (12133): Instantiated megafunction "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0" with the following parameter: File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/Team5_EECS3216_Project.v Line: 132
     Info (12134): Parameter "LPM_WIDTHA" = "11"
     Info (12134): Parameter "LPM_WIDTHB" = "16"
     Info (12134): Parameter "LPM_WIDTHP" = "27"
@@ -1256,7 +1257,6 @@ Info (12131): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsen
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_9vg.tdf
     Info (12023): Found entity 1: add_sub_9vg File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/db/add_sub_9vg.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "Team5_EECS3216_Project:gsensor_alarm|lpm_mult:Mult0" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 54 buffer(s)
     Info (13016): Ignored 54 CARRY_SUM buffer(s)
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
@@ -1422,15 +1422,15 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 91
     Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 106
     Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/Mohammad Mahfooz/Projects/EECS3216-Design-Project/DE10_LITE_Golden_Top.v Line: 106
-Info (21057): Implemented 1473 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1507 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 1287 logic cells
+    Info (21061): Implemented 1321 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 177 warnings
-    Info: Peak virtual memory: 4869 megabytes
-    Info: Processing ended: Mon Nov 25 18:54:33 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 179 warnings
+    Info: Peak virtual memory: 4873 megabytes
+    Info: Processing ended: Wed Nov 27 14:25:36 2024
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:08
 

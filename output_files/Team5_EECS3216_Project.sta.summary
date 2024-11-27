@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 11.506
+Slack : 12.257
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 494.475
+Slack : 496.077
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 0.418
+Slack : 0.419
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.485
+Slack : 0.429
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
@@ -23,27 +23,27 @@ Slack : 9.775
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.755
+Slack : 19.753
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 249.754
+Slack : 249.753
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 12.313
+Slack : 12.947
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 494.956
+Slack : 496.443
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 0.345
+Slack : 0.346
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.414
+Slack : 0.354
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
@@ -51,7 +51,7 @@ Slack : 9.783
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.715
+Slack : 19.711
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
@@ -59,11 +59,11 @@ Slack : 249.712
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 15.769
+Slack : 16.253
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 497.234
+Slack : 498.046
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
@@ -71,7 +71,7 @@ Slack : 0.206
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.232
+Slack : 0.211
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
@@ -79,11 +79,11 @@ Slack : 9.530
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.796
+Slack : 19.795
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 249.795
+Slack : 249.797
 TNS   : 0.000
 
 ------------------------------------------------------------

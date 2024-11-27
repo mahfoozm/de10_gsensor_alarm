@@ -1,5 +1,5 @@
 Assembler report for Team5_EECS3216_Project
-Mon Nov 25 18:54:44 2024
+Wed Nov 27 14:25:48 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Nov 25 18:54:44 2024 ;
+; Assembler Status      ; Successful - Wed Nov 27 14:25:48 2024 ;
 ; Revision Name         ; Team5_EECS3216_Project                ;
 ; Top-level Entity Name ; DE10_LITE_Golden_Top                  ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                     ;
 +----------------+-------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00314EE5                                                                                                  ;
-; Checksum       ; 0x00314EE5                                                                                                  ;
+; JTAG usercode  ; 0x0031CB9B                                                                                                  ;
+; Checksum       ; 0x0031CB9B                                                                                                  ;
 +----------------+-------------------------------------------------------------------------------------------------------------+
 
 
@@ -78,15 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 25 18:54:42 2024
+    Info: Processing started: Wed Nov 27 14:25:46 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Team5_EECS3216_Project -c Team5_EECS3216_Project
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file d:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4699 megabytes
-    Info: Processing ended: Mon Nov 25 18:54:44 2024
+    Info: Peak virtual memory: 4700 megabytes
+    Info: Processing ended: Wed Nov 27 14:25:48 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

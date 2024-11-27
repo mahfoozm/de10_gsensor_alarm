@@ -1,13 +1,13 @@
 
-State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_state
-Name spi_state.IDLE spi_state.INTERACT spi_state.TRANSFER 
-spi_state.IDLE 0 0 0 
-spi_state.TRANSFER 1 0 1 
-spi_state.INTERACT 1 1 0 
+State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|serdes_state
+Name serdes_state.11 serdes_state.10 serdes_state.01 serdes_state.00 
+serdes_state.00 0 0 0 0 
+serdes_state.01 0 0 1 1 
+serdes_state.10 0 1 0 1 
+serdes_state.11 1 0 0 1 
 
-State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_control:spi_ctrl|spi_serdes:serdes|state
-Name state.STALL state.READ state.WRITE state.IDLE 
-state.IDLE 0 0 0 0 
-state.WRITE 0 0 1 1 
-state.READ 0 1 0 1 
-state.STALL 1 0 0 1 
+State Machine - |DE10_LITE_Golden_Top|Team5_EECS3216_Project:gsensor_alarm|spi_controller:gsensor|spi_state
+Name spi_state.00 spi_state.10 spi_state.01 
+spi_state.00 0 0 0 
+spi_state.01 1 0 1 
+spi_state.10 1 1 0 

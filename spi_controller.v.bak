@@ -1,0 +1,300 @@
+module spi_controller #(
+    parameter SPI_CLK_FREQ = 2_000_000,  // SPI clock frequency in Hz
+    parameter UPDATE_FREQ  = 50          // Data update frequency in Hz
+)(
+    // Host side signals
+    input         reset_n,      // Active-low reset
+    input         clk,          // System clock for non-SPI logic (in phase with spi_clk)
+    input         spi_clk,      // SPI clock for internal logic (in phase with clk)
+    input         spi_clk_out,  // SPI clock output (phase shifted if necessary)
+
+    // Data interface
+    output        data_update,  // Pulse indicating new data is available
+    output [15:0] data_x,       // 16-bit output data from accelerometer
+
+    // SPI interface
+    output        SPI_SDI,      // SPI serial data input to slave (MOSI)
+    input         SPI_SDO,      // SPI serial data output from slave (MISO)
+    output        SPI_CSN,      // SPI chip select (active low)
+    output        SPI_CLK       // SPI clock output
+);
+
+    // ============================================================================
+    // Parameters and Local Parameters
+    // ============================================================================
+
+    // Timing calculations
+    localparam TIMECOUNT = SPI_CLK_FREQ / UPDATE_FREQ;  // Number of SPI clock cycles between updates
+
+    // Data widths
+    localparam SDI_WIDTH = 16;  // Width of data packet to transmit (in bits)
+    localparam SDO_WIDTH = 8;   // Width of data packet to receive (in bits)
+
+    // SPI operation modes (bits [15:14] in command)
+    localparam WRITE_MODE = 2'b00;  // Write operation
+    localparam READ_MODE  = 2'b10;  // Read operation
+
+    // Number of initial configuration commands
+    localparam INI_NUMBER = 11;
+
+    // SPI Control State Machine States
+    localparam CTRL_IDLE     = 2'd0;
+    localparam CTRL_TRANSFER = 2'd1;
+    localparam CTRL_INTERACT = 2'd2;
+
+    // SPI Serializer/Deserializer (SerDes) State Machine States
+    localparam SERDES_IDLE  = 2'd0;  // Wait for start signal
+    localparam SERDES_WRITE = 2'd1;  // Transmit data
+    localparam SERDES_READ  = 2'd2;  // Receive data
+    localparam SERDES_STALL = 2'd3;  // Stall for one cycle to assert 'done' signal
+
+    // Read register addresses
+    localparam DATA_X0        = 6'h32;  // X-axis data 0 (LSB)
+    localparam DATA_X1        = 6'h33;  // X-axis data 1 (MSB)
+
+    // ============================================================================
+    // Signal Declarations
+    // ============================================================================
+
+    // SPI Control State Machine signals
+    reg [1:0] spi_state;           // Current state of SPI control state machine
+    reg [3:0] init_index;          // Index for initial configuration commands
+    reg       start;               // Start signal for SPI transaction
+    reg [15:0] data_tx;            // Data to transmit over SPI
+    reg [1:0] read_index;          // Index for read commands
+    reg [7:0] read_command;        // Current read command
+    reg       data_update_internal;// Internal data update signal
+
+    // SPI SerDes State Machine signals
+    reg [1:0] serdes_state;        // Current state of SPI SerDes state machine
+    reg [3:0] serdes_count;        // Bit counter for SPI transfer
+    reg [15:0] data_tx_reg;        // Register for data to transmit (shifted)
+    reg       serdes_read;         // Flag indicating read operation
+    reg [7:0] data_rx;             // Data received from SPI
+    wire      spi_active;          // SPI active flag
+    wire      done;                // SPI transaction done flag
+
+    // Data storage
+    reg [7:0] data_storage [1:0];  // Storage for received data (X-axis LSB and MSB)
+    assign data_x = {data_storage[1], data_storage[0]};  // Concatenate MSB and LSB
+
+    // Sample timer
+    reg [$clog2(TIMECOUNT)-1:0] sample_count;  // Counter for sampling interval
+    wire sample;                                // Signal indicating it's time to sample
+
+    // Clock domain crossing for data_update
+    reg [1:0] data_update_shift;  // Shift register for data_update synchronization
+
+    // ============================================================================
+    // SPI Interface Assignments
+    // ============================================================================
+
+    // SPI active when in WRITE or READ state
+    assign spi_active = (serdes_state == SERDES_READ) || (serdes_state == SERDES_WRITE);
+
+    // SPI Chip Select (active low)
+    assign SPI_CSN = ~(spi_active || start);
+
+    // SPI Clock Output
+    assign SPI_CLK = spi_active ? spi_clk_out : 1'b1;
+
+    // SPI Serial Data Input (MOSI)
+    assign SPI_SDI = (serdes_state == SERDES_WRITE) ? data_tx_reg[serdes_count] : 1'b1;
+
+    // SPI transaction done signal
+    assign done = (serdes_state == SERDES_STALL);
+
+    // Data update pulse (synchronized to clk domain)
+    assign data_update = (data_update_shift == 2'b01);
+
+    // ============================================================================
+    // Sample Timer
+    // ============================================================================
+
+    // Generate 'sample' signal every TIMECOUNT SPI clock cycles to control update frequency
+    assign sample = (sample_count == TIMECOUNT - 1);
+    always @(posedge spi_clk or negedge reset_n) begin
+        if (!reset_n) begin
+            sample_count <= 0;
+        end else begin
+            if (sample) begin
+                sample_count <= 0;
+            end else begin
+                sample_count <= sample_count + 1'b1;
+            end
+        end
+    end
+
+    // ============================================================================
+    // Initial Configuration Commands
+    // ============================================================================
+
+    // Initialize accelerometer settings using a configuration table
+    reg [13:0] write_data;  // 14 bits: {register address[5:0], data[7:0]}
+
+    always @(*) begin
+        case (init_index)
+            // Configure activity threshold
+            0: write_data = {THRESH_ACT,     8'h20};
+            // Configure inactivity threshold
+            1: write_data = {THRESH_INACT,   8'h03};
+            // Configure inactivity time
+            2: write_data = {TIME_INACT,     8'h01};
+            // Configure activity/inactivity control (enable all axes, AC/DC settings)
+            3: write_data = {ACT_INACT_CTL,  8'h7F};
+            // Configure free-fall threshold
+            4: write_data = {THRESH_FF,      8'h09};
+            // Configure free-fall time
+            5: write_data = {TIME_FF,        8'h46};
+            // Set data rate and power mode (e.g., 50 Hz output rate)
+            6: write_data = {BW_RATE,        8'h09};
+            // Set data format (e.g., full resolution, right-justified)
+            9: write_data = {DATA_FORMAT,    8'h00};
+            // Enable auto-sleep mode
+            default: write_data = {POWER_CONTROL, 8'h08};
+        endcase
+    end
+
+    // ============================================================================
+    // Read Commands
+    // ============================================================================
+
+    // Define read commands to read data from accelerometer
+    // Reading X-axis data registers (LSB and MSB)
+    always @(*) begin
+        case (read_index)
+            0: read_command = {READ_MODE, DATA_X0};  // Read X-axis LSB
+            1: read_command = {READ_MODE, DATA_X1};  // Read X-axis MSB
+            default: read_command = {READ_MODE, 8'h00};  // No operation
+        endcase
+    end
+
+    localparam LAST_READ_COMMAND = 2;  // Number of read commands (0 and 1)
+
+    // ============================================================================
+    // SPI Control State Machine
+    // ============================================================================
+
+    always @(posedge spi_clk or negedge reset_n) begin
+        if (!reset_n) begin
+            // Reset state
+            init_index           <= 0;
+            start                <= 1'b0;
+            spi_state            <= CTRL_IDLE;
+            read_index           <= 0;
+            data_update_internal <= 1'b0;
+        end else if (init_index < INI_NUMBER) begin
+            // Initialization phase: write configuration commands
+            case (spi_state)
+                CTRL_IDLE: begin
+                    // Prepare data for SPI transmission
+                    data_tx <= {WRITE_MODE, write_data};
+                    start   <= 1'b1;       // Initiate SPI transaction
+                    spi_state <= CTRL_TRANSFER;
+                end
+                CTRL_TRANSFER: begin
+                    if (done) begin
+                        // Move to next initialization command
+                        init_index <= init_index + 1;
+                        start      <= 1'b0;
+                        spi_state  <= CTRL_IDLE;
+                    end
+                end
+            endcase
+        end else begin
+            // Normal operation: periodic data reading
+            case (spi_state)
+                CTRL_IDLE: begin
+                    // Wait for sample interval
+                    data_update_internal <= 1'b0;
+                    read_index           <= 0;
+                    start                <= 1'b0;
+                    if (sample) begin
+                        spi_state <= CTRL_INTERACT;
+                    end
+                end
+                CTRL_INTERACT: begin
+                    // Prepare read command
+                    data_tx[15:8] <= read_command;
+                    if (read_index > 0) begin
+                        // Store received data from previous read
+                        data_storage[read_index - 1] <= data_rx;
+                    end
+                    start     <= 1'b1;     // Initiate SPI transaction
+                    spi_state <= CTRL_TRANSFER;
+                end
+                CTRL_TRANSFER: begin
+                    if (done) begin
+                        start <= 1'b0;
+                        if (read_index == LAST_READ_COMMAND) begin
+                            // All reads completed
+                            data_update_internal <= 1'b1;
+                            spi_state <= CTRL_IDLE;
+                        end else begin
+                            // Move to next read command
+                            read_index <= read_index + 1;
+                            spi_state  <= CTRL_INTERACT;
+                        end
+                    end
+                end
+                default: spi_state <= CTRL_IDLE;
+            endcase
+        end
+    end
+
+    // ============================================================================
+    // SPI SerDes State Machine
+    // ============================================================================
+
+    always @(posedge spi_clk or negedge reset_n) begin
+        if (!reset_n) begin
+            serdes_state <= SERDES_IDLE;
+        end else begin
+            case (serdes_state)
+                SERDES_IDLE: begin
+                    serdes_count <= 4'hF;  // Start from bit 15
+                    if (start) begin
+                        // Start SPI transaction
+                        serdes_read   <= data_tx[15];  // Determine if it's a read operation
+                        data_tx_reg   <= data_tx;      // Load data to transmit
+                        serdes_state  <= SERDES_WRITE;
+                    end
+                end
+                SERDES_WRITE: begin
+                    // Transmit data (MOSI)
+                    serdes_count <= serdes_count - 1;
+                    if (serdes_read && (serdes_count == 8)) begin
+                        // Switch to read state after sending address (for read operation)
+                        serdes_state <= SERDES_READ;
+                    end else if (serdes_count == 0) begin
+                        // Write operation completed
+                        serdes_state <= SERDES_STALL;
+                    end
+                end
+                SERDES_READ: begin
+                    // Receive data (MISO)
+                    serdes_count <= serdes_count - 1;
+                    data_rx <= {data_rx[6:0], SPI_SDO};  // Shift in received bit
+                    if (serdes_count == 0) begin
+                        // Read operation completed
+                        serdes_state <= SERDES_STALL;
+                    end
+                end
+                SERDES_STALL: begin
+                    // Stall for one cycle to assert 'done' signal
+                    serdes_state <= SERDES_IDLE;
+                end
+            endcase
+        end
+    end
+
+    // ============================================================================
+    // Data Update Pulse Synchronization
+    // ============================================================================
+
+    // Synchronize data_update_internal to clk domain using a shift register
+    always @(posedge clk) begin
+        data_update_shift <= {data_update_shift[0], data_update_internal};
+    end
+
+endmodule

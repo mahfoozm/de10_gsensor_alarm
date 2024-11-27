@@ -1,5 +1,5 @@
 Timing Analyzer report for Team5_EECS3216_Project
-Mon Nov 25 18:54:47 2024
+Wed Nov 27 14:25:51 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -92,13 +92,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.56        ;
+; Average used               ; 1.61        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.9%      ;
-;     Processors 3-16        ;   3.7%      ;
+;     Processor 2            ;   4.3%      ;
+;     Processors 3-16        ;   4.0%      ;
 +----------------------------+-------------+
 
 
@@ -119,8 +119,8 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+--------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                         ; Note ;
 +------------+-----------------+--------------------------------------------------------------------+------+
-; 152.05 MHz ; 152.05 MHz      ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ;      ;
-; 181.0 MHz  ; 181.0 MHz       ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ;      ;
+; 66.37 MHz  ; 66.37 MHz       ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ;      ;
+; 254.91 MHz ; 254.91 MHz      ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ;      ;
 +------------+-----------------+--------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -130,8 +130,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------+---------+---------------+
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 11.506  ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 494.475 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 12.257  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 496.077 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
 
@@ -140,8 +140,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------+-------+---------------+
 ; Clock                                                              ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------+-------+---------------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 0.418 ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.485 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 0.419 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.429 ; 0.000         ;
 +--------------------------------------------------------------------+-------+---------------+
 
 
@@ -163,8 +163,8 @@ No paths to report.
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
 ; MAX10_CLK1_50                                                      ; 9.775   ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.755  ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 249.754 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.753  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 249.753 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
 
@@ -179,8 +179,8 @@ No synchronizer chains to report.
 +------------+-----------------+--------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                         ; Note ;
 +------------+-----------------+--------------------------------------------------------------------+------+
-; 164.8 MHz  ; 164.8 MHz       ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ;      ;
-; 198.26 MHz ; 198.26 MHz      ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ;      ;
+; 72.81 MHz  ; 72.81 MHz       ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ;      ;
+; 281.14 MHz ; 281.14 MHz      ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ;      ;
 +------------+-----------------+--------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -190,8 +190,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------+---------+---------------+
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 12.313  ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 494.956 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 12.947  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 496.443 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
 
@@ -200,8 +200,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------+-------+---------------+
 ; Clock                                                              ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------+-------+---------------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 0.345 ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.414 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 0.346 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.354 ; 0.000         ;
 +--------------------------------------------------------------------+-------+---------------+
 
 
@@ -223,7 +223,7 @@ No paths to report.
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
 ; MAX10_CLK1_50                                                      ; 9.783   ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.715  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.711  ; 0.000         ;
 ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 249.712 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
@@ -239,8 +239,8 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------+---------+---------------+
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 15.769  ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 497.234 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 16.253  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 498.046 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
 
@@ -250,7 +250,7 @@ No synchronizer chains to report.
 ; Clock                                                              ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------+-------+---------------+
 ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 0.206 ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.232 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.211 ; 0.000         ;
 +--------------------------------------------------------------------+-------+---------------+
 
 
@@ -272,8 +272,8 @@ No paths to report.
 ; Clock                                                              ; Slack   ; End Point TNS ;
 +--------------------------------------------------------------------+---------+---------------+
 ; MAX10_CLK1_50                                                      ; 9.530   ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.796  ; 0.000         ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 249.795 ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 19.795  ; 0.000         ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 249.797 ; 0.000         ;
 +--------------------------------------------------------------------+---------+---------------+
 
 
@@ -288,10 +288,10 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
 ; Clock                                                               ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +---------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                    ; 11.506  ; 0.206 ; N/A      ; N/A     ; 9.530               ;
+; Worst-case Slack                                                    ; 12.257  ; 0.206 ; N/A      ; N/A     ; 9.530               ;
 ;  MAX10_CLK1_50                                                      ; N/A     ; N/A   ; N/A      ; N/A     ; 9.530               ;
-;  gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 11.506  ; 0.232 ; N/A      ; N/A     ; 19.715              ;
-;  gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 494.475 ; 0.206 ; N/A      ; N/A     ; 249.712             ;
+;  gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 12.257  ; 0.211 ; N/A      ; N/A     ; 19.711              ;
+;  gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 496.077 ; 0.206 ; N/A      ; N/A     ; 249.712             ;
 ; Design-wide TNS                                                     ; 0.0     ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  MAX10_CLK1_50                                                      ; N/A     ; N/A   ; N/A      ; N/A     ; 0.000               ;
 ;  gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 0.000   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
@@ -1115,9 +1115,9 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                         ; To Clock                                                           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 2914     ; 0        ; 0        ; 0        ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 62860    ; 0        ; 0        ; 0        ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 797      ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 140963   ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 60855    ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 462      ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1127,9 +1127,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                         ; To Clock                                                           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 2914     ; 0        ; 0        ; 0        ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 62860    ; 0        ; 0        ; 0        ;
-; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 797      ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 140963   ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] ; 60855    ; 0        ; 0        ; 0        ;
+; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] ; 462      ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1154,9 +1154,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 3     ; 3    ;
-; Unconstrained Input Port Paths  ; 169   ; 169  ;
+; Unconstrained Input Port Paths  ; 171   ; 171  ;
 ; Unconstrained Output Ports      ; 36    ; 36   ;
-; Unconstrained Output Port Paths ; 455   ; 455  ;
+; Unconstrained Output Port Paths ; 445   ; 445  ;
 +---------------------------------+-------+------+
 
 
@@ -1288,7 +1288,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 25 18:54:45 2024
+    Info: Processing started: Wed Nov 27 14:25:49 2024
 Info: Command: quartus_sta Team5_EECS3216_Project -c Team5_EECS3216_Project
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1309,73 +1309,73 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 11.506
+Info (332146): Worst-case setup slack is 12.257
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    11.506               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):   494.475               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
-Info (332146): Worst-case hold slack is 0.418
+    Info (332119):    12.257               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   496.077               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+Info (332146): Worst-case hold slack is 0.419
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.418               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.485               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):     0.419               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):     0.429               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 9.775
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.775               0.000 MAX10_CLK1_50 
-    Info (332119):    19.755               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):   249.754               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):    19.753               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   249.753               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 12.313
+Info (332146): Worst-case setup slack is 12.947
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    12.313               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):   494.956               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
-Info (332146): Worst-case hold slack is 0.345
+    Info (332119):    12.947               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   496.443               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+Info (332146): Worst-case hold slack is 0.346
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.345               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.414               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):     0.346               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):     0.354               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 9.783
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.783               0.000 MAX10_CLK1_50 
-    Info (332119):    19.715               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    19.711               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
     Info (332119):   249.712               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 15.769
+Info (332146): Worst-case setup slack is 16.253
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.769               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):   497.234               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):    16.253               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   498.046               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
 Info (332146): Worst-case hold slack is 0.206
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.206               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.232               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):     0.211               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 9.530
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.530               0.000 MAX10_CLK1_50 
-    Info (332119):    19.796               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):   249.795               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):    19.795               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   249.797               0.000 gsensor_alarm|pll_inst|altpll_component|auto_generated|pll1|clk[1] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4981 megabytes
-    Info: Processing ended: Mon Nov 25 18:54:47 2024
+    Info: Peak virtual memory: 4983 megabytes
+    Info: Processing ended: Wed Nov 27 14:25:51 2024
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
